@@ -16,11 +16,11 @@ boy=loadImage("Tennis boy.png")
 function setup() {
   createCanvas(windowWidth, windowHeight)
   edges=createEdgeSprites();
-  bg = createSprite(600,500);
+  bg = createSprite(width/2, height/2);
 bg.addImage(bgImage);
 bg.scale=2.5
   
-  plr = createSprite(600,800);
+  plr = createSprite(width/2,height/2 + 300);
 plr.addImage(racketImage);
 plr.scale=0.7
 //plr.debug=true
@@ -68,7 +68,7 @@ gameState="play"
   
  
  
- 
+ /*
  //console.log(plr.y);
   if(keyDown("up") && plr.y>600) {
     plr.y = plr.y-15;
@@ -81,8 +81,10 @@ gameState="play"
   }
    if(keyDown("right")) {
     plr.x=plr.x+15;
-  }
+  }*/
   
+  plr.y=mouseX;
+  plr.y = mouseY;
  if (plr.isTouching(ball)) {
   ball.velocityY=Math.round(random(-15,-20));
 ball.velocityX=Math.round(random(-1,1));
